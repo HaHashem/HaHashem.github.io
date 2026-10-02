@@ -23,12 +23,5 @@
     "tags": ["DFIR", "Windows Forensics", "MITRE ATT&CK", "Lab"],
     "minutes": 9
   },
-  {
-    "slug": "welcome",
-    "title": "Welcome: how to add an article",
-    "date": "2026-09-30",
-    "summary": "A sample post that shows the Markdown workflow. Delete it once you publish your first real article.",
-    "tags": ["Meta"],
-    "minutes": 2
-  }
+  
 ]
