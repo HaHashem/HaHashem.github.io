@@ -16,14 +16,6 @@
     "links": []
   },
   {
-    "title": "DFIR Lab Write-ups (template)",
-    "date": "2026-09-01",
-    "category": "DFIR",
-    "summary": "Case-style reports from public datasets and CTF/lab images: evidence, timeline, findings, IOCs and recommendations. Replace with your first lab.",
-    "tags": ["Windows Forensics", "Timeline", "Volatility", "KAPE"],
-    "links": []
-  },
-  {
     "title": "Enterprise Virtualization & VDI",
     "date": "2022-10-01",
     "category": "Infrastructure",
