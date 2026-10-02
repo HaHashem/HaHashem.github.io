@@ -1,307 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hashem Hashem - CV</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1e293b;
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: #4a5568;
-            border-radius: 4px;
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .section-separator {
-            height: 1px;
-            background: linear-gradient(to right, transparent, #334155, transparent);
-            margin: 4rem 0;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hashem H. Hashem | SOC Analyst · DFIR</title>
+<meta name="description" content="Information security analyst with 16 years across systems, network engineering and SOC operations, moving into DFIR. Projects, articles and a threat intel toolkit.">
+<link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen">
-
-    <div class="container mx-auto px-4 py-8 md:py-16 max-w-5xl">
-        
-        <!-- Header Section -->
-        <header class="flex flex-col items-center gap-6 mb-12">
-            <div class="relative w-32 h-32 rounded-full overflow-hidden border-4 border-teal-400 shadow-lg">
-                <img src="https://placehold.co/128x128/1F2937/F3F4F6?text=HH" alt="Hashem Hashem" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-slate-900/30"></div>
-            </div>
-            <div class="text-center">
-                <h1 class="text-5xl font-extrabold text-teal-300">Hashem H. Hashem</h1>
-                <p class="text-2xl mt-2 text-slate-300 font-light">Systems & Network Security Professional</p>
-                <div class="flex flex-wrap justify-center items-center gap-6 mt-6 text-slate-400">
-                    <a href="tel:+14125131465" class="flex items-center gap-2 hover:text-teal-300 transition-colors">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        <span class="hidden md:inline">(+1) (412) 513-1465</span>
-                    </a>
-                    <a href="mailto:Hashemhamdyk.hashem@icloud.com" class="flex items-center gap-2 hover:text-teal-300 transition-colors">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        <span class="hidden md:inline">Hashemhamdyk.hashem@icloud.com</span>
-                    </a>
-                    <a href="www.linkedin.com/in/hashem-hashem-47258456" target="_blank" class="flex items-center gap-2 hover:text-teal-300 transition-colors">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                        <span class="hidden md:inline">LinkedIn</span>
-                    </a>
-                </div>
-            </div>
-        </header>
-
-        <!-- Navigation Bar -->
-        <nav class="flex justify-center mb-12" id="navigation">
-            <ul class="flex space-x-6 text-xl font-medium text-slate-300">
-                <li><a href="#profile" class="hover:text-teal-300 transition-colors">Profile</a></li>
-                <li><a href="#experience" class="hover:text-teal-300 transition-colors">Experience</a></li>
-                <li><a href="#skills" class="hover:text-teal-300 transition-colors">Skills</a></li>
-                <li><a href="#projects" class="hover:text-teal-300 transition-colors">Projects</a></li>
-                <li><a href="#education" class="hover:text-teal-300 transition-colors">Education</a></li>
-            </ul>
-        </nav>
-
-        <!-- Profile Section -->
-        <section id="profile" class="fade-in mb-12">
-            <h2 class="text-3xl font-bold text-slate-200 mb-4">Professional Profile</h2>
-            <p class="text-slate-300 leading-relaxed">
-                Experienced Systems Engineer and Network security professional with a proven track record of increasing overall security posture. I have extensive experience performing security gap analysis, reporting on missing security controls, and developing tailored use cases for various security controls like SIEM, EDR, and NDR. My hands-on skills include configuring, maintaining, and monitoring Next Generation Firewalls, Email security appliances, and web application firewalls. I am adept at planning and implementing IT solutions for single and multi-location businesses, troubleshooting complex systems, and improving efficiency of IT and business operations.
-            </p>
-        </section>
-
-        <!-- Separator -->
-        <div class="section-separator fade-in"></div>
-
-        <!-- Experience Section -->
-        <section id="experience" class="fade-in mb-12">
-            <h2 class="text-3xl font-bold text-slate-200 mb-6">Experience</h2>
-            
-            <!-- Job 1 -->
-            <div class="mb-8 p-6 rounded-lg bg-slate-800/50 hover:bg-slate-800 transition-colors shadow-xl">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
-                    <h3 class="text-xl font-semibold text-teal-300">Information Security Analyst</h3>
-                    <p class="text-sm text-slate-400 mt-1 md:mt-0">Oct 2022 – Present</p>
-                </div>
-                <p class="text-md font-medium text-slate-400 mb-4">TD Bank Group</p>
-                <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
-                    <li>Performed shift lead duties including platform health checks and peer reviews of cases.</li>
-                    <li>Monitored and responded to assigned cyber alerts across all CSOC sources, ensuring timely handling and escalation within SLOs.</li>
-                    <li>Collaborated with L3 teams on ongoing investigations and escalations.</li>
-                    <li>Conducted SIEM investigations using Splunk and Azure Sentinel.</li>
-                    <li>Identified tuning opportunities to reduce false positives in the environment.</li>
-                    <li>Carried out IOC searches based on threat intelligence feeds across SIEM and Endpoint detection tools.</li>
-                    <li>Performed Data Loss Prevention using Symantec to assess data exfiltration.</li>
-                    <li>Investigated anomalies using Endpoint detection tools such as CrowdStrike and Microsoft Defender.</li>
-                    <li>Worked on Cyber Security Incidents (3rd party, system, and user-based activities) and represented the team to business stakeholders.</li>
-                    <li>Provided training to new hires for SIEM and Endpoint detection tools and assisted colleagues with queries.</li>
-                </ul>
-            </div>
-            
-            <!-- Job 2 -->
-            <div class="mb-8 p-6 rounded-lg bg-slate-800/50 hover:bg-slate-800 transition-colors shadow-xl">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
-                    <h3 class="text-xl font-semibold text-teal-300">Sr. System and Virtualization Engineer</h3>
-                    <p class="text-sm text-slate-400 mt-1 md:mt-0">Dec 2016 – Oct 2022</p>
-                </div>
-                <p class="text-md font-medium text-slate-400 mb-4">ECG, Qatar Branch</p>
-                <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
-                    <li>Designed and deployed VMware vSphere ESXi and vCenter infrastructure.</li>
-                    <li>Provided extensive administrative and troubleshooting experience in VMware environments.</li>
-                    <li>Managed storage design, installation, configuration, and troubleshooting for SAN storage (FC), ISCSI, NFS, and CIFS.</li>
-                    <li>Deployed and administered IBM Storwize V7K and managed SAN and fiber switches.</li>
-                    <li>Designed, implemented, and maintained Microsoft Windows Server environments (Active Directory, DNS, DHCP, Group Policy, etc.).</li>
-                    <li>Implemented and managed Microsoft Exchange 2013 for over 5000+ users.</li>
-                    <li>Managed and maintained Cisco switches, wireless controllers, and IP phones.</li>
-                    <li>Administered various security firewalls including NGFW FortiGate, Juniper SSG 140, and Cisco ASA 5525-X.</li>
-                    <li>Conducted penetration testing using Linux Kali for various attack types.</li>
-                    <li>Built a NOC using PRTG and Lansweeper for continuous network monitoring.</li>
-                </ul>
-            </div>
-
-            <!-- Job 3 -->
-            <div class="mb-8 p-6 rounded-lg bg-slate-800/50 hover:bg-slate-800 transition-colors shadow-xl">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
-                    <h3 class="text-xl font-semibold text-teal-300">System Administrator</h3>
-                    <p class="text-sm text-slate-400 mt-1 md:mt-0">Mar 2014 – Dec 2016</p>
-                </div>
-                <p class="text-md font-medium text-slate-400 mb-4">ECG, Qatar Branch</p>
-                <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
-                    <li>Managed and maintained virtual servers using VMware ESXi and MS Hyper-V.</li>
-                    <li>Managed and maintained Windows File Server, DNS Server, DHCP, and Active Directory settings.</li>
-                    <li>Managed and maintained IBM Domino Mail server and Lotus notes mail client.</li>
-                    <li>Designed, implemented, and maintained IBM Storwize V7K unified storage.</li>
-                    <li>Designed, implemented, and maintained Kaspersky Security Center.</li>
-                </ul>
-            </div>
-
-            <!-- Job 4 -->
-            <div class="mb-8 p-6 rounded-lg bg-slate-800/50 hover:bg-slate-800 transition-colors shadow-xl">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
-                    <h3 class="text-xl font-semibold text-teal-300">Technical Support Engineer / System Administrator</h3>
-                    <p class="text-sm text-slate-400 mt-1 md:mt-0">May 2009 – Mar 2014</p>
-                </div>
-                <p class="text-md font-medium text-slate-400 mb-4">ECG, Egypt Branch</p>
-                <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
-                    <li>Managed and maintained IBM Domino Mail Server and Lotus Notes client for over 5000+ users.</li>
-                    <li>Troubleshot hardware and software errors, documenting problems and resolutions.</li>
-                    <li>Managed desktop and helpdesk support, ensuring timely resolution of issues.</li>
-                    <li>Managed print server installation and configuration, including network printer security.</li>
-                </ul>
-            </div>
-        </section>
-        
-        <!-- Separator -->
-        <div class="section-separator fade-in"></div>
-
-        <!-- Skills Section -->
-        <section id="skills" class="fade-in mb-12">
-            <h2 class="text-3xl font-bold text-slate-200 mb-6">Skills & Technologies</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
-                <!-- Skill Card -->
-                <div class="p-6 bg-slate-800/50 rounded-lg shadow-xl hover:bg-slate-800 transition-colors">
-                    <svg class="w-12 h-12 mx-auto text-teal-300 mb-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                    <p class="text-lg font-semibold text-slate-200">Network Security</p>
-                </div>
-                <div class="p-6 bg-slate-800/50 rounded-lg shadow-xl hover:bg-slate-800 transition-colors">
-                    <svg class="w-12 h-12 mx-auto text-teal-300 mb-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s2 5 10 5 10-5 10-5M2 12l1.6 4.8M22 12l-1.6 4.8M12 17v4M12 17a4 4 0 0 1-4-4V5a4 4 0 0 1 4-4M12 17a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4"/></svg>
-                    <p class="text-lg font-semibold text-slate-200">SIEM / SOC</p>
-                </div>
-                <div class="p-6 bg-slate-800/50 rounded-lg shadow-xl hover:bg-slate-800 transition-colors">
-                    <svg class="w-12 h-12 mx-auto text-teal-300 mb-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server-cog"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/><circle cx="16" cy="18" r="2"/><path d="M16 14v2.5"/><path d="M16 21.5V22"/><path d="M20.24 19.76l-1.88-1.88"/><path d="M13.76 16.24l-1.88-1.88"/><path d="M20.24 16.24l-1.88 1.88"/><path d="M13.76 19.76l-1.88 1.88"/></svg>
-                    <p class="text-lg font-semibold text-slate-200">System Administration</p>
-                </div>
-                <div class="p-6 bg-slate-800/50 rounded-lg shadow-xl hover:bg-slate-800 transition-colors">
-                    <svg class="w-12 h-12 mx-auto text-teal-300 mb-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                    <p class="text-lg font-semibold text-slate-200">Endpoint Security</p>
-                </div>
-                <div class="p-6 bg-slate-800/50 rounded-lg shadow-xl hover:bg-slate-800 transition-colors">
-                    <svg class="w-12 h-12 mx-auto text-teal-300 mb-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-command"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h1a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2h-1a3 3 0 0 0-3 3v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2h-1a3 3 0 0 0-3 3V6a3 3 0 0 0 3-3h1a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-1a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h1a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2h-1a3 3 0 0 0-3 3V6a3 3 0 0 0 3-3h1a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-1a3 3 0 0 0-3 3z"/></svg>
-                    <p class="text-lg font-semibold text-slate-200">Linux / Kali</p>
-                </div>
-                <div class="p-6 bg-slate-800/50 rounded-lg shadow-xl hover:bg-slate-800 transition-colors">
-                    <svg class="w-12 h-12 mx-auto text-teal-300 mb-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database-zap"><path d="M12 21.5A10 10 0 0 1 2 12c0-2.28 2-3.13 4-3.5A6 6 0 0 0 12 6c4 0 6 .86 6 3.5"/><path d="M2.5 17a10 10 0 0 0 19 0"/><path d="M6 13a6 6 0 0 1 6 6"/><path d="M10 21.5a10 10 0 0 0 4-1.5"/><path d="M19 14l-2 3h3l-3 3"/><path d="M12 6a6 6 0 0 0-6 6"/><path d="M19.98 12c.01-.85.02-1.7.02-2.5"/></svg>
-                    <p class="text-lg font-semibold text-slate-200">Databases</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Separator -->
-        <div class="section-separator fade-in"></div>
-
-        <!-- Projects Section -->
-        <section id="projects" class="fade-in mb-12">
-            <h2 class="text-3xl font-bold text-slate-200 mb-6">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Project Card 1 -->
-                <div class="p-6 bg-slate-800/50 rounded-lg shadow-xl hover:bg-slate-800 transition-colors">
-                    <h3 class="text-xl font-semibold text-teal-300 mb-2">Qatar Emiri Naval Forces Base</h3>
-                    <p class="text-slate-400 mb-4">Sr System and Security engineer for the project The Naval forces Base is a newly established military naval base located approximately 25 kilometers south of Doha adjacent to the new Port on a new offshore island that will be reclaimed as part of the NP development. It consists of 174 buildings of TBUA 498,361 sqm including office buildings, workshops, depots, warehouses, training facilities, medical facilities, accommodation, sports and recreation facilities and a dedicated Special Forces base to provide berthing facilities for both QENF vessels and visiting ships including those from GCC states and other allies, Setting forth the creation of one of the world’s largest greenfield port developments. The QAR 27 Billion (USD 7.4 Billion) megaproject, which includes a new port, a new base for the Qatar Emiri Naval Forces and the Qatar Economic Zone 3.</p>
-                    <a href="#" class="text-teal-400 hover:text-teal-300 transition-colors font-medium">View Project &rarr;</a>
-                </div>
-                <!-- Project Card 2 -->
-                <div class="p-6 bg-slate-800/50 rounded-lg shadow-xl hover:bg-slate-800 transition-colors">
-                    <h3 class="text-xl font-semibold text-teal-300 mb-2">VDI VMware View</h3>
-                    <p class="text-slate-400 mb-4">Increase control of desktops, applications, and data by delivering and managing them as centralized services and Deliver maximum workplace productivity and convenience for end users, whether they are online or offline, on desktops or mobile devices, or connected to a LAN or a WAN. Enable end users to access their desktops as needed. Unlike traditional PCs, Horizon View desktops reside in the cloud they’re not tied to the physical computer.Transform desktops into highly available, agile services delivered from your cloud. </p>
-                    <a href="#" class="text-teal-400 hover:text-teal-300 transition-colors font-medium">View Project &rarr;</a>
-                </div>
-                <!-- You can add more project cards here -->
-            </div>
-        </section>
-
-        <!-- Separator -->
-        <div class="section-separator fade-in"></div>
-
-        <!-- Education Section -->
-        <section id="education" class="fade-in mb-12">
-            <h2 class="text-3xl font-bold text-slate-200 mb-6">Education</h2>
-            <div class="mb-4">
-                <p class="text-xl font-semibold text-teal-300">BSc, Information System</p>
-                <p class="text-md text-slate-300">Cairo, Egypt (2004 – 2008)</p>
-            </div>
-        </section>
-        
-        <!-- Separator -->
-        <div class="section-separator fade-in"></div>
-
-        <!-- Certifications & Courses Section -->
-        <section id="certifications" class="fade-in mb-12">
-            <h2 class="text-3xl font-bold text-slate-200 mb-6">Certifications & Courses</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-300 mb-3">Certifications</h3>
-                    <ul class="list-disc list-inside space-y-2 text-slate-400 ml-4">
-                        <li>VMware vSphere: Fast Track [V5.5]</li>
-                        <li>CEH V10</li>
-                        <li>FortiGate NSE1</li>
-                        <li>Cisco Introduction to Cybersecurity</li>
-                        <li>Proofpoint Certified Phishing Specialist</li>
-                        <li>Mandiant Network Traffic Analysis</li>
-                        <li>Mandiant Incident Response for Everyone</li>
-                        <li>Security Blue Team Introduction to Darkweb Operation</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-300 mb-3">Self-Study & Future Plans</h3>
-                    <ul class="list-disc list-inside space-y-2 text-slate-400 ml-4">
-                        <li>Offensive Security Certified Professional</li>
-                        <li>Microsoft Windows Server (MCSA, MCSE)</li>
-                        <li>FortiGate</li>
-                        <li>CCNA</li>
-                        <li>Windows Forensics</li>
-                        <li>SANS GCFA (FOR508)</li>
-                        <li>CCD (Certified CyberDefender)</li>
-                        <li>CYSA+ (Cybersecurity Analyst +)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center text-slate-400 pt-8 mt-12 border-t border-slate-700">
-            <p>Glenshaw PA 15116, US</p>
-            <p>Last updated: 2024</p>
-        </footer>
-
+<body>
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">SOC Analyst → DFIR</div>
+    <h1>Hashem H. Hashem</h1>
+    <p class="lead">Information security analyst with 16 years across systems, network engineering and cybersecurity operations. I investigate alerts, hunt IOCs across SIEM and EDR, and I'm building my craft in digital forensics and incident response.</p>
+    <div class="cta">
+      <a class="btn primary" href="intel.html">Open IOC checker</a>
+      <a class="btn" href="projects.html">View projects</a>
+      <a class="btn" href="articles.html">Read articles</a>
     </div>
+    <div class="stats">
+      <div class="stat"><b>16+</b><span>years in IT &amp; security</span></div>
+      <div class="stat"><b>SIEM</b><span>Splunk · Azure Sentinel</span></div>
+      <div class="stat"><b>EDR</b><span>CrowdStrike · Defender</span></div>
+      <div class="stat"><b>DFIR</b><span>GCFA / CCD track</span></div>
+    </div>
+  </section>
 
-    <script>
-        const sections = document.querySelectorAll('.fade-in');
+  <h2>Latest projects</h2>
+  <div class="grid" id="projects"></div>
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    // Stop observing once it's visible
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            rootMargin: '0px',
-            threshold: 0.1
-        });
+  <h2>Latest articles</h2>
+  <div class="grid" id="articles"></div>
 
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    </script>
-
+  <h2>Threat intel toolkit</h2>
+  <a class="card" href="intel.html">
+    <h3>IOC checker &amp; watchlist</h3>
+    <p>Paste any text or a list of indicators. It extracts IPs, domains, URLs, hashes, emails and CVEs, refangs them, and gives one-click pivots to VirusTotal, AbuseIPDB, urlscan, Shodan and more. Runs entirely in your browser.</p>
+  </a>
+</main>
+<script src="assets/site.js"></script>
+<script>
+(async () => {
+  const { esc, fmtDate, json } = H;
+  const tags = t => `<div class="tags">${(t||[]).map(x=>`<span class="tag">${esc(x)}</span>`).join("")}</div>`;
+  const [p, a] = await Promise.all([json("data/projects.json"), json("data/articles.json")]);
+  document.getElementById("projects").innerHTML = p.slice(0,3).map(x => `
+    <a class="card" href="projects.html"><span class="meta">${esc(x.category)} · ${fmtDate(x.date)}</span>
+    <h3>${esc(x.title)}</h3><p>${esc(x.summary)}</p>${tags(x.tags)}</a>`).join("");
+  document.getElementById("articles").innerHTML = a.slice(0,3).map(x => `
+    <a class="card" href="article.html?slug=${encodeURIComponent(x.slug)}"><span class="meta">${fmtDate(x.date)} · ${x.minutes||5} min read</span>
+    <h3>${esc(x.title)}</h3><p>${esc(x.summary)}</p>${tags(x.tags)}</a>`).join("");
+})().catch(console.error);
+</script>
 </body>
 </html>
