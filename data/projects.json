@@ -4,23 +4,91 @@
     "date": "2026-10-02",
     "category": "DFIR",
     "summary": "Lab investigation of a ClickFix (fake CAPTCHA, Win+R paste) intrusion with host artifacts, a timeline and nine CrowdStrike Falcon Advanced Event Search hunting queries.",
-    "tags": ["ClickFix", "CrowdStrike", "Threat Hunting", "DFIR"],
-    "links": [{ "label": "Read write-up", "url": "article.html?slug=dfir-clickfix-investigation" }]
+    "tags": [
+      "ClickFix",
+      "CrowdStrike",
+      "Threat Hunting",
+      "DFIR"
+    ],
+    "links": [
+      {
+        "label": "Read write-up",
+        "url": "article.html?slug=dfir-clickfix-investigation"
+      }
+    ]
   },
   {
     "title": "Hunting Distributed Attacks with JA4",
     "date": "2026-10-02",
     "category": "Detection",
     "summary": "Method for clustering a distributed web attack that rotates IPs and User-Agents using JA4 TLS fingerprints, with Splunk and KQL hunting queries and mitigation guidance.",
-    "tags": ["JA4", "WAF", "Splunk", "KQL", "Threat Hunting"],
-    "links": [{ "label": "Read write-up", "url": "article.html?slug=ja4-fingerprint-hunting" }]
+    "tags": [
+      "JA4",
+      "WAF",
+      "Splunk",
+      "KQL",
+      "Threat Hunting"
+    ],
+    "links": [
+      {
+        "label": "Read write-up",
+        "url": "article.html?slug=ja4-fingerprint-hunting"
+      }
+    ]
+  },
+  {
+    "title": "IOC Checker (open source)",
+    "date": "2026-10-02",
+    "category": "Tooling",
+    "summary": "Browser-based tool that extracts and sanitizes IPs, domains, hashes, URLs and JA3/JA4 fingerprints, then searches many threat intel platforms at once. No API keys, no backend, with tests.",
+    "tags": [
+      "JavaScript",
+      "Threat Intel",
+      "JA4",
+      "IOC",
+      "Open Source"
+    ],
+    "links": [
+      {
+        "label": "Use it",
+        "url": "intel.html"
+      },
+      {
+        "label": "Source on GitHub",
+        "url": "https://github.com/HaHashem/ioc-checker"
+      }
+    ]
+  },
+  {
+    "title": "SOC Hunting Queries (open source)",
+    "date": "2026-10-02",
+    "category": "Detection",
+    "summary": "Hunting and detection query templates for CrowdStrike Falcon, Splunk and Sentinel KQL, each with data needs, ATT&CK mapping, false positives and next steps.",
+    "tags": [
+      "CrowdStrike",
+      "Splunk",
+      "KQL",
+      "MITRE ATT&CK",
+      "Detection Engineering"
+    ],
+    "links": [
+      {
+        "label": "Source on GitHub",
+        "url": "https://github.com/HaHashem/soc-hunting-queries"
+      }
+    ]
   },
   {
     "title": "Home Network Segmentation (Alta Labs)",
     "date": "2026-07-18",
     "category": "Homelab",
     "summary": "Migrated a home network to Alta Labs gear (Route10 gateway, AP6-Pro access points) with VLAN segmentation for trusted, IoT and lab devices, and firewall rules between zones.",
-    "tags": ["VLANs", "Firewall", "Network Security", "Homelab"],
+    "tags": [
+      "VLANs",
+      "Firewall",
+      "Network Security",
+      "Homelab"
+    ],
     "links": []
   },
   {
@@ -28,7 +96,14 @@
     "date": "2026-09-01",
     "category": "Engineering",
     "summary": "System, network, and security engineer at Qatar Emiri Naval Forces Base site office",
-    "tags": ["VMware", "Cisco", "Firewall", "Linux", "Windows Server", "Network Security"],
+    "tags": [
+      "VMware",
+      "Cisco",
+      "Firewall",
+      "Linux",
+      "Windows Server",
+      "Network Security"
+    ],
     "links": []
   },
   {
@@ -36,7 +111,12 @@
     "date": "2022-10-01",
     "category": "Infrastructure",
     "summary": "Designed and ran VMware vSphere and Horizon VDI environments with SAN/iSCSI/NFS storage. Background that informs how I investigate infrastructure-level incidents.",
-    "tags": ["VMware", "vSphere", "Horizon VDI", "SAN"],
+    "tags": [
+      "VMware",
+      "vSphere",
+      "Horizon VDI",
+      "SAN"
+    ],
     "links": []
   }
 ]

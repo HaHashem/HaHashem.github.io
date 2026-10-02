@@ -1,10 +1,44 @@
 [
   {
+    "slug": "crowdstrike-powershell-download-hunting",
+    "title": "Hunting PowerShell downloads in CrowdStrike and Splunk",
+    "date": "2026-10-02",
+    "summary": "Find the file name, hash and source URL behind a PowerShell download using Falcon event_simpleNames (ProcessRollup2, NewExecutableWritten, DnsRequest, NetworkConnectIP4), then confirm and scope with Splunk proxy, firewall and DNS queries.",
+    "tags": [
+      "CrowdStrike",
+      "Splunk",
+      "PowerShell",
+      "Threat Hunting",
+      "DFIR"
+    ],
+    "minutes": 12
+  },
+  {
+    "slug": "network-tls-fingerprint-hunting-ja3-ja4",
+    "title": "Network traffic hunting with JA3 and JA4 TLS fingerprints",
+    "date": "2026-10-02",
+    "summary": "What a TLS fingerprint is, how JA4 differs from JA3, and Splunk queries to stack fingerprints, find new and rare clients, pivot to hosts and IPs, and spot beaconing.",
+    "tags": [
+      "JA4",
+      "JA3",
+      "Splunk",
+      "Network",
+      "Threat Hunting"
+    ],
+    "minutes": 12
+  },
+  {
     "slug": "dfir-clickfix-investigation",
     "title": "DFIR case study: ClickFix and CrowdStrike hunting",
     "date": "2026-10-02",
     "summary": "Lab investigation of a ClickFix (fake CAPTCHA, Win+R paste) intrusion with host artifacts, a timeline and nine CrowdStrike Falcon Advanced Event Search queries for hunting and scoping.",
-    "tags": ["DFIR", "ClickFix", "CrowdStrike", "Threat Hunting", "Lab"],
+    "tags": [
+      "DFIR",
+      "ClickFix",
+      "CrowdStrike",
+      "Threat Hunting",
+      "Lab"
+    ],
     "minutes": 11
   },
   {
@@ -12,7 +46,12 @@
     "title": "Hunting distributed web attacks with JA4 fingerprints",
     "date": "2026-10-02",
     "summary": "How to use JA4 TLS fingerprints to cluster a distributed attack that rotates IPs and User-Agents, with Splunk and KQL hunting queries, corroboration with JA4H, mitigation and limits.",
-    "tags": ["JA4", "Threat Hunting", "WAF", "Network"],
+    "tags": [
+      "JA4",
+      "Threat Hunting",
+      "WAF",
+      "Network"
+    ],
     "minutes": 9
   },
   {
@@ -20,7 +59,12 @@
     "title": "DFIR case study: phishing to lateral movement",
     "date": "2026-10-02",
     "summary": "Lab-based investigation write-up: macro phishing, PowerShell execution, scheduled-task persistence, LSASS access and SMB lateral movement, with timeline, ATT&CK mapping and detections.",
-    "tags": ["DFIR", "Windows Forensics", "MITRE ATT&CK", "Lab"],
+    "tags": [
+      "DFIR",
+      "Windows Forensics",
+      "MITRE ATT&CK",
+      "Lab"
+    ],
     "minutes": 9
   }
 ]

@@ -34,7 +34,7 @@
       <span>© ${new Date().getFullYear()} Hashem H. Hashem · SOC / DFIR</span>
       <span>
         <a href="https://www.linkedin.com/in/hashem-hashem-47258456" target="_blank" rel="noopener">LinkedIn</a> ·
-        <a href="https://github.com/hahashem" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/HaHashem" target="_blank" rel="noopener">GitHub</a>
       </span>
     </div>`;
   document.body.append(footer);
