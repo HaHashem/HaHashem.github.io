@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Article | Hashem H. Hashem</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/vendor/marked.min.js"></script>
+<script src="assets/vendor/purify.min.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <p><a href="articles.html">← All articles</a></p>
+  <div id="head"></div>
+  <article class="prose" id="body"><p class="empty">Loading…</p></article>
+</main>
+<script src="assets/site.js"></script>
+<script>
+(async () => {
+  const { esc, fmtDate, json } = H;
+  const slug = (new URLSearchParams(location.search).get("slug") || "").replace(/[^a-z0-9_-]/gi, "");
+  const items = await json("data/articles.json");
+  const meta = items.find(i => i.slug === slug);
+  if (!meta) { document.getElementById("body").innerHTML = "<p>Article not found.</p>"; return; }
+  document.title = meta.title + " | Hashem H. Hashem";
+  document.getElementById("head").innerHTML = `
+    <span class="meta">${fmtDate(meta.date)} · ${meta.minutes||5} min read</span>
+    <h1>${esc(meta.title)}</h1>
+    <div class="tags" style="margin-bottom:24px">${(meta.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>`;
+  const md = await (await fetch(`articles/${slug}.md`)).text();
+  document.getElementById("body").innerHTML = DOMPurify.sanitize(marked.parse(md));
+})().catch(e => { document.getElementById("body").innerHTML = "<p>Could not load article.</p>"; console.error(e); });
+</script>
+</body>
+</html>

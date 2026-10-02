@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects | Hashem H. Hashem</title>
+<meta name="description" content="Detection engineering, DFIR labs, homelab and infrastructure projects.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="eyebrow">Work</div>
+  <h1>Projects</h1>
+  <p class="lead">Detection use cases, forensics labs, homelab builds and infrastructure work. Edit <code>data/projects.json</code> to add more.</p>
+  <div class="filter" id="filter"></div>
+  <div class="grid" id="list"></div>
+</main>
+<script src="assets/site.js"></script>
+<script>
+(async () => {
+  const { esc, fmtDate, json } = H;
+  const items = (await json("data/projects.json")).sort((a,b)=>b.date.localeCompare(a.date));
+  const cats = ["All", ...new Set(items.map(i=>i.category))];
+  let cur = "All";
+  const f = document.getElementById("filter"), l = document.getElementById("list");
+  function render(){
+    f.innerHTML = cats.map(c=>`<button class="${c===cur?"on":""}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
+    const shown = items.filter(i=>cur==="All"||i.category===cur);
+    l.innerHTML = shown.map(x=>`
+      <div class="card"><span class="meta">${esc(x.category)} · ${fmtDate(x.date)}</span>
+      <h3>${esc(x.title)}</h3><p>${esc(x.summary)}</p>
+      <div class="tags">${(x.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>
+      ${(x.links||[]).length?`<div class="links" style="margin-top:8px">${x.links.map(k=>`<a href="${esc(k.url)}" target="_blank" rel="noopener">${esc(k.label)}</a>`).join("")}</div>`:""}
+      </div>`).join("") || `<div class="empty">Nothing here yet.</div>`;
+    f.querySelectorAll("button").forEach(b=>b.onclick=()=>{cur=b.dataset.c;render()});
+  }
+  render();
+})().catch(console.error);
+</script>
+</body>
+</html>

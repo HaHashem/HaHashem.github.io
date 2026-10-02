@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "dfir-clickfix-investigation",
+    "title": "DFIR case study: ClickFix and CrowdStrike hunting",
+    "date": "2026-10-02",
+    "summary": "Lab investigation of a ClickFix (fake CAPTCHA, Win+R paste) intrusion with host artifacts, a timeline and nine CrowdStrike Falcon Advanced Event Search queries for hunting and scoping.",
+    "tags": ["DFIR", "ClickFix", "CrowdStrike", "Threat Hunting", "Lab"],
+    "minutes": 11
+  },
+  {
+    "slug": "ja4-fingerprint-hunting",
+    "title": "Hunting distributed web attacks with JA4 fingerprints",
+    "date": "2026-10-02",
+    "summary": "How to use JA4 TLS fingerprints to cluster a distributed attack that rotates IPs and User-Agents, with Splunk and KQL hunting queries, corroboration with JA4H, mitigation and limits.",
+    "tags": ["JA4", "Threat Hunting", "WAF", "Network"],
+    "minutes": 9
+  },
+  {
+    "slug": "dfir-phishing-to-lateral-movement",
+    "title": "DFIR case study: phishing to lateral movement",
+    "date": "2026-10-02",
+    "summary": "Lab-based investigation write-up: macro phishing, PowerShell execution, scheduled-task persistence, LSASS access and SMB lateral movement, with timeline, ATT&CK mapping and detections.",
+    "tags": ["DFIR", "Windows Forensics", "MITRE ATT&CK", "Lab"],
+    "minutes": 9
+  },
+  {
+    "slug": "welcome",
+    "title": "Welcome: how to add an article",
+    "date": "2026-09-30",
+    "summary": "A sample post that shows the Markdown workflow. Delete it once you publish your first real article.",
+    "tags": ["Meta"],
+    "minutes": 2
+  }
+]

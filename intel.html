@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Threat Intel | Hashem H. Hashem</title>
+<meta name="description" content="Browser-based IOC extractor, defanger and pivot tool with a saved watchlist.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="eyebrow">Threat Intel</div>
+  <h1>IOC checker</h1>
+  <p class="lead">Paste IPs, domains, URLs, file hashes, JA3/JA4 fingerprints, emails or CVEs, in any mix and even defanged. Indicators are sanitized, de-duplicated and typed, then you pick the platforms and search them all in one click. No API keys needed.</p>
+  <p class="notice">Everything runs locally in your browser. Nothing is sent anywhere until you open a search. Opening a platform means that platform sees the indicator, so don't search confidential employer data on third-party sites. JA3/JA4 lookups are limited on public platforms; some links are search entry points, and a few platforms need an account.</p>
+
+  <div class="tabs" id="tabs">
+    <button class="on" data-t="check">IOC checker</button>
+    <button data-t="watch">Watchlist <span class="meta" id="wcount"></span></button>
+    <button data-t="tools">Defang / Refang</button>
+    <button data-t="cheat">Cheat sheet</button>
+  </div>
+
+  <section class="panel on" id="p-check">
+    <textarea id="input" placeholder="Paste text or IOCs here, e.g.&#10;hxxps://evil[.]example[.]com/login.php&#10;185.220.101.4&#10;44d88612fea8a8f36de82e1278abb02f&#10;CVE-2024-3400" spellcheck="false"></textarea>
+    <div class="toolbar">
+      <button class="btn primary" id="run">Extract IOCs</button>
+      <button class="btn" id="clear">Clear</button>
+      <label class="meta"><input type="checkbox" id="hidePriv" style="width:auto" checked> hide private/internal IPs</label>
+      <label class="meta">32-char hex is
+        <select id="hex32" style="width:auto;padding:4px 8px"><option value="md5">MD5 hash</option><option value="ja3">JA3 fingerprint</option></select></label>
+      <span class="grow"></span>
+      <button class="btn small primary" id="openAll">Search all shown</button>
+      <button class="btn small" id="copyDef">Copy defanged</button>
+      <button class="btn small" id="csv">Export CSV</button>
+      <button class="btn small" id="saveAll">Save all to watchlist</button>
+    </div>
+    <div class="toolbar"><div class="filter" id="typeFilter" style="margin:0"></div></div>
+    <div class="toolbar"><span class="meta">Search on:</span><div class="filter" id="platforms" style="margin:0"></div></div>
+    <p class="meta">Each indicator opens one tab per selected platform. Allow pop-ups for this site if your browser blocks the extra tabs. Your selection is remembered.</p>
+    <div id="summary" class="meta"></div>
+    <div class="tablewrap" style="margin-top:10px"><table>
+      <thead><tr><th>Type</th><th>Indicator</th><th>Pivot</th><th></th></tr></thead>
+      <tbody id="rows"><tr><td colspan="4" class="empty">Nothing extracted yet.</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section class="panel" id="p-watch">
+    <div class="toolbar">
+      <input id="wnote" class="grow" placeholder="Filter watchlist…">
+      <button class="btn small" id="wexport">Export JSON</button>
+      <label class="btn small">Import JSON<input type="file" id="wimport" accept="application/json" hidden></label>
+      <button class="btn small" id="wclear">Clear all</button>
+    </div>
+    <p class="meta">Stored in this browser only. To use it on another device, export here and import there.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Type</th><th>Indicator</th><th>Note</th><th>Added</th><th></th></tr></thead>
+      <tbody id="wrows"></tbody>
+    </table></div>
+  </section>
+
+  <section class="panel" id="p-tools">
+    <div class="two">
+      <div><h3>Input</h3><textarea id="dfIn" spellcheck="false" placeholder="http://evil.example.com/a  or  hxxp://evil[.]example[.]com/a"></textarea></div>
+      <div><h3>Output</h3><textarea id="dfOut" readonly></textarea></div>
+    </div>
+    <div class="toolbar"><button class="btn" id="doDefang">Defang</button><button class="btn" id="doRefang">Refang</button><button class="btn small" id="copyOut">Copy output</button></div>
+  </section>
+
+  <section class="panel cheat" id="p-cheat">
+    <div class="grid">
+      <div class="card"><h3>Investigation pivots</h3><p>IP → reputation (AbuseIPDB, GreyNoise), exposure (Shodan/Censys), first-seen and passive DNS (VT, OTX). Domain → registration age (Whois), certificates (<code>crt.sh</code>), scans (urlscan). Hash → VT detections, sandbox reports, MalwareBazaar family tags.</p></div>
+      <div class="card"><h3>Confidence habits</h3><p>Reputation ≠ verdict. Check first-seen dates, shared hosting/CDN, and whether the IOC appears in your own telemetry before escalating. Record source and date for every indicator.</p></div>
+      <div class="card"><h3>SIEM search seeds</h3><p>Splunk: <code>index=* "185.220.101.4" | stats count by index, sourcetype, host</code><br>Sentinel: <code>search "evil.example.com" | summarize count() by $table</code></p></div>
+      <div class="card"><h3>Handling</h3><p>Defang before sharing. Never open live URLs from a work machine; use a sandbox. Follow your organisation's policy on submitting indicators to public services.</p></div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/site.js"></script>
+<script src="assets/ioc.js"></script>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id), { esc } = H;
+  const LABEL = { ip: "IP", domain: "Domain", url: "URL", md5: "MD5", sha1: "SHA1", sha256: "SHA256", ja3: "JA3", ja4: "JA4", ja4s: "JA4S", email: "Email", cve: "CVE" };
+  const CLASS = { md5: "hash", sha1: "hash", sha256: "hash", ja3: "ja", ja4: "ja", ja4s: "ja" };
+  const PLAT = IOC.platforms();
+  const loadSel = () => { try { const s = JSON.parse(localStorage.getItem("platforms") || "null"); if (Array.isArray(s)) return s; } catch (e) {} return ["VirusTotal", "AbuseIPDB", "GreyNoise", "Talos"]; };
+  const sel = new Set(loadSel());
+  const urlsFor = (r) => r.private ? [] : IOC.pivots(r).filter(([n]) => sel.has(n)).map((p) => p[1]);
+  function openUrls(urls) {
+    urls = [...new Set(urls)];
+    if (!urls.length) { alert("None of the selected platforms support these indicator types. Select more platforms."); return; }
+    if (urls.length > 8 && !confirm(`This opens ${urls.length} tabs. Continue?`)) return;
+    urls.forEach((u) => window.open(u, "_blank", "noopener,noreferrer"));
+  }
+  function renderPlat() {
+    $("platforms").innerHTML = PLAT.map((n) => `<button class="${sel.has(n) ? "on" : ""}" data-p="${esc(n)}">${esc(n)}</button>`).join("");
+    $("platforms").querySelectorAll("button").forEach((b) => b.onclick = () => {
+      sel.has(b.dataset.p) ? sel.delete(b.dataset.p) : sel.add(b.dataset.p);
+      try { localStorage.setItem("platforms", JSON.stringify([...sel])); } catch (e) {}
+      renderPlat();
+    });
+  }
+  const store = { get() { try { return JSON.parse(localStorage.getItem("watchlist") || "[]"); } catch (e) { return []; } },
+                  set(v) { try { localStorage.setItem("watchlist", JSON.stringify(v)); } catch (e) {} } };
+  let results = [], typeSel = "all";
+
+  // Tabs
+  $("tabs").querySelectorAll("button").forEach((b) => b.onclick = () => {
+    $("tabs").querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b));
+    document.querySelectorAll(".panel").forEach((p) => p.classList.toggle("on", p.id === "p-" + b.dataset.t));
+    if (b.dataset.t === "watch") renderWatch();
+  });
+
+  const badge = (t) => `<span class="badge ${CLASS[t] || t}">${LABEL[t]}</span>`;
+  const links = (i) => `<div class="links">${IOC.pivots(i).map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${n}</a>`).join("")}</div>`;
+  const visible = () => results.filter((r) => (typeSel === "all" || r.type === typeSel) && !($("hidePriv").checked && r.private));
+
+  function render() {
+    const rows = visible();
+    const types = ["all", ...new Set(results.map((r) => r.type))];
+    $("typeFilter").innerHTML = results.length ? types.map((t) => `<button class="${t === typeSel ? "on" : ""}" data-t="${t}">${t === "all" ? "All" : LABEL[t]} (${t === "all" ? results.length : results.filter((r) => r.type === t).length})</button>`).join("") : "";
+    $("typeFilter").querySelectorAll("button").forEach((b) => b.onclick = () => { typeSel = b.dataset.t; render(); });
+    $("summary").textContent = results.length ? `${rows.length} shown · ${results.length} unique indicators` : "";
+    $("rows").innerHTML = rows.length ? rows.map((r, idx) => `
+      <tr><td>${badge(r.type)}${r.private ? '<span class="badge priv">private</span>' : ""}</td>
+      <td class="ioc">${esc(IOC.defang(r.value))}${r.count > 1 ? ` <span class="meta">×${r.count}</span>` : ""}</td>
+      <td>${r.private ? '<span class="meta">Internal address, no public intel</span>' : links(r)}</td>
+      <td style="white-space:nowrap"><button class="btn small primary" data-a="open" data-i="${idx}">Search</button> <button class="btn small" data-a="copy" data-i="${idx}">Copy</button> <button class="btn small" data-a="save" data-i="${idx}">Save</button></td></tr>`).join("")
+      : `<tr><td colspan="4" class="empty">${results.length ? "All results hidden by filters." : "Nothing extracted yet."}</td></tr>`;
+    $("rows").querySelectorAll("button").forEach((b) => b.onclick = () => {
+      const r = rows[+b.dataset.i];
+      if (b.dataset.a === "copy") navigator.clipboard.writeText(IOC.defang(r.value));
+      else if (b.dataset.a === "open") openUrls(urlsFor(r));
+      else save([r]);
+    });
+  }
+
+  function save(list) {
+    const w = store.get(), have = new Set(w.map((x) => x.type + "|" + x.value));
+    let n = 0;
+    list.forEach((r) => { if (!have.has(r.type + "|" + r.value)) { w.push({ type: r.type, value: r.value, note: "", added: new Date().toISOString().slice(0, 10) }); n++; } });
+    store.set(w); updCount();
+    $("summary").textContent = `Saved ${n} new indicator${n === 1 ? "" : "s"} to watchlist.`;
+  }
+  const updCount = () => { const n = store.get().length; $("wcount").textContent = n ? `(${n})` : ""; };
+
+  function renderWatch() {
+    const f = $("wnote").value.toLowerCase(), w = store.get();
+    const rows = w.map((x, i) => ({ ...x, i })).filter((x) => !f || (x.value + x.note + x.type).toLowerCase().includes(f));
+    $("wrows").innerHTML = rows.length ? rows.map((x) => `
+      <tr><td>${badge(x.type)}</td>
+      <td class="ioc">${esc(IOC.defang(x.value))}<div style="margin-top:6px">${links(x)}</div></td>
+      <td><input data-n="${x.i}" value="${esc(x.note || "")}" placeholder="note / source / ticket"></td>
+      <td class="meta">${esc(x.added || "")}</td>
+      <td><button class="btn small" data-d="${x.i}">Remove</button></td></tr>`).join("")
+      : `<tr><td colspan="5" class="empty">Watchlist is empty. Save indicators from the checker.</td></tr>`;
+    $("wrows").querySelectorAll("input[data-n]").forEach((inp) => inp.onchange = () => { const a = store.get(); a[+inp.dataset.n].note = inp.value; store.set(a); });
+    $("wrows").querySelectorAll("button[data-d]").forEach((b) => b.onclick = () => { const a = store.get(); a.splice(+b.dataset.d, 1); store.set(a); updCount(); renderWatch(); });
+  }
+
+  $("run").onclick = () => { results = IOC.extract($("input").value, { hex32: $("hex32").value }); typeSel = "all"; render(); };
+  $("hex32").onchange = () => { if ($("input").value.trim()) $("run").click(); };
+  $("openAll").onclick = () => openUrls(visible().flatMap(urlsFor));
+  renderPlat();
+  $("input").addEventListener("keydown", (e) => { if ((e.ctrlKey || e.metaKey) && e.key === "Enter") $("run").click(); });
+  $("clear").onclick = () => { $("input").value = ""; results = []; render(); };
+  $("hidePriv").onchange = render;
+  $("copyDef").onclick = () => navigator.clipboard.writeText(visible().map((r) => IOC.defang(r.value)).join("\n"));
+  $("saveAll").onclick = () => save(visible());
+  $("csv").onclick = () => {
+    const q = (s) => `"${String(s).replace(/"/g, '""')}"`;
+    const csv = "type,indicator,count\n" + visible().map((r) => [r.type, IOC.defang(r.value), r.count].map(q).join(",")).join("\n");
+    const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" })); a.download = "iocs.csv"; a.click();
+  };
+  $("wnote").oninput = renderWatch;
+  $("wexport").onclick = () => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(store.get(), null, 2)], { type: "application/json" })); a.download = "watchlist.json"; a.click(); };
+  $("wimport").onchange = async (e) => {
+    try {
+      const inc = JSON.parse(await e.target.files[0].text());
+      if (!Array.isArray(inc)) throw 0;
+      const w = store.get(), have = new Set(w.map((x) => x.type + "|" + x.value));
+      inc.filter((x) => x && LABEL[x.type] && typeof x.value === "string" && !have.has(x.type + "|" + x.value))
+         .forEach((x) => w.push({ type: x.type, value: x.value, note: String(x.note || ""), added: String(x.added || "") }));
+      store.set(w); updCount(); renderWatch();
+    } catch (err) { alert("Not a valid watchlist file."); }
+    e.target.value = "";
+  };
+  $("wclear").onclick = () => { if (confirm("Delete the whole watchlist?")) { store.set([]); updCount(); renderWatch(); } };
+  $("doDefang").onclick = () => { $("dfOut").value = IOC.defang($("dfIn").value); };
+  $("doRefang").onclick = () => { $("dfOut").value = IOC.refang($("dfIn").value); };
+  $("copyOut").onclick = () => navigator.clipboard.writeText($("dfOut").value);
+  updCount();
+})();
+</script>
+</body>
+</html>

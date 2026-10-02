@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Articles | Hashem H. Hashem</title>
+<meta name="description" content="Writing on SOC operations, investigations and DFIR.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="eyebrow">Writing</div>
+  <h1>Articles</h1>
+  <p class="lead">Notes on investigations, detections and forensics. Written in Markdown, published by pushing to GitHub.</p>
+  <div class="toolbar"><input id="q" class="grow" placeholder="Search articles or tags…" aria-label="Search articles"></div>
+  <div class="grid" id="list"></div>
+</main>
+<script src="assets/site.js"></script>
+<script>
+(async () => {
+  const { esc, fmtDate, json } = H;
+  const items = (await json("data/articles.json")).sort((a,b)=>b.date.localeCompare(a.date));
+  const l = document.getElementById("list"), q = document.getElementById("q");
+  function render(){
+    const s = q.value.trim().toLowerCase();
+    const shown = items.filter(i => !s || (i.title+" "+i.summary+" "+(i.tags||[]).join(" ")).toLowerCase().includes(s));
+    l.innerHTML = shown.map(x=>`
+      <a class="card" href="article.html?slug=${encodeURIComponent(x.slug)}">
+      <span class="meta">${fmtDate(x.date)} · ${x.minutes||5} min read</span>
+      <h3>${esc(x.title)}</h3><p>${esc(x.summary)}</p>
+      <div class="tags">${(x.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div></a>`).join("")
+      || `<div class="empty">No matching articles.</div>`;
+  }
+  q.oninput = render; render();
+})().catch(console.error);
+</script>
+</body>
+</html>

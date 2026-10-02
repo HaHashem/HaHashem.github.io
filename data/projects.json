@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Home Network Segmentation (Alta Labs)",
+    "date": "2026-07-18",
+    "category": "Homelab",
+    "summary": "Migrated a home network to Alta Labs gear (Route10 gateway, AP6-Pro access points) with VLAN segmentation for trusted, IoT and lab devices, and firewall rules between zones.",
+    "tags": ["VLANs", "Firewall", "Network Security", "Homelab"],
+    "links": []
+  },
+  {
+    "title": "SOC Detection Use Cases (template)",
+    "date": "2026-09-01",
+    "category": "Detection",
+    "summary": "Sample-data detection write-ups mapped to MITRE ATT&CK: hypothesis, data source, SPL/KQL query, false-positive tuning and response steps. Replace this card with your first real one.",
+    "tags": ["Splunk", "Sentinel", "MITRE ATT&CK", "KQL", "SPL"],
+    "links": []
+  },
+  {
+    "title": "DFIR Lab Write-ups (template)",
+    "date": "2026-09-01",
+    "category": "DFIR",
+    "summary": "Case-style reports from public datasets and CTF/lab images: evidence, timeline, findings, IOCs and recommendations. Replace with your first lab.",
+    "tags": ["Windows Forensics", "Timeline", "Volatility", "KAPE"],
+    "links": []
+  },
+  {
+    "title": "Enterprise Virtualization & VDI",
+    "date": "2022-10-01",
+    "category": "Infrastructure",
+    "summary": "Designed and ran VMware vSphere and Horizon VDI environments with SAN/iSCSI/NFS storage. Background that informs how I investigate infrastructure-level incidents.",
+    "tags": ["VMware", "vSphere", "Horizon VDI", "SAN"],
+    "links": []
+  }
+]
