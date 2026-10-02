@@ -22,5 +22,5 @@
     "summary": "Lab-based investigation write-up: macro phishing, PowerShell execution, scheduled-task persistence, LSASS access and SMB lateral movement, with timeline, ATT&CK mapping and detections.",
     "tags": ["DFIR", "Windows Forensics", "MITRE ATT&CK", "Lab"],
     "minutes": 9
-  },
+  }
 ]
