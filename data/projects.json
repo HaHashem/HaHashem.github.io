@@ -1,5 +1,21 @@
 [
   {
+    "title": "ClickFix Investigation & CrowdStrike Hunting",
+    "date": "2026-10-02",
+    "category": "DFIR",
+    "summary": "Lab investigation of a ClickFix (fake CAPTCHA, Win+R paste) intrusion with host artifacts, a timeline and nine CrowdStrike Falcon Advanced Event Search hunting queries.",
+    "tags": ["ClickFix", "CrowdStrike", "Threat Hunting", "DFIR"],
+    "links": [{ "label": "Read write-up", "url": "article.html?slug=dfir-clickfix-investigation" }]
+  },
+  {
+    "title": "Hunting Distributed Attacks with JA4",
+    "date": "2026-10-02",
+    "category": "Detection",
+    "summary": "Method for clustering a distributed web attack that rotates IPs and User-Agents using JA4 TLS fingerprints, with Splunk and KQL hunting queries and mitigation guidance.",
+    "tags": ["JA4", "WAF", "Splunk", "KQL", "Threat Hunting"],
+    "links": [{ "label": "Read write-up", "url": "article.html?slug=ja4-fingerprint-hunting" }]
+  },
+  {
     "title": "Home Network Segmentation (Alta Labs)",
     "date": "2026-07-18",
     "category": "Homelab",
@@ -12,7 +28,7 @@
     "date": "2026-09-01",
     "category": "Engineering",
     "summary": "System, network, and security engineer at Qatar Emiri Naval Forces Base site office",
-    "tags": ["Splunk", "Sentinel", "MITRE ATT&CK", "KQL", "SPL", "Cisco", "VMware", "Linux", "Firewall"],
+    "tags": ["VMware", "Cisco", "Firewall", "Linux", "Windows Server", "Network Security"],
     "links": []
   },
   {

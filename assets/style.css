@@ -89,3 +89,9 @@ td.ioc{font-family:var(--mono);word-break:break-all;max-width:360px}
 .filter button{background:var(--card);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:5px 14px;cursor:pointer;font:inherit;font-size:.85rem}
 .filter button.on{color:#04211d;background:var(--accent);border-color:var(--accent)}
 .empty{color:var(--muted);padding:24px;text-align:center}
+
+/* Phone fixes: keep long tables and code inside the screen */
+.prose{min-width:0;overflow-wrap:break-word}
+.prose table{display:block;max-width:100%;overflow-x:auto}
+.prose pre{max-width:100%;overflow-wrap:normal}
+.prose th,.prose td{min-width:90px}

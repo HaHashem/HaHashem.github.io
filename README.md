@@ -15,7 +15,7 @@
 
 ## Where I came from
 
-16+ years in IT: helpdesk and system administration, then senior systems and virtualization engineering (VMware, SAN storage, Windows Server and Active Directory, Exchange, firewalls), then security. Knowing what "normal" looks like inside an enterprise is what makes abnormal stand out.
+15+ years in IT: helpdesk and system administration, then senior systems and virtualization engineering (VMware, SAN storage, Windows Server and Active Directory, Exchange, firewalls), then security. Knowing what "normal" looks like inside an enterprise is what makes abnormal stand out.
 
 ## What I'm working on now
 
