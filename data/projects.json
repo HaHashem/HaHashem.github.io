@@ -8,11 +8,11 @@
     "links": []
   },
   {
-    "title": "SOC Detection Use Cases (template)",
+    "title": "System and security engineer at Qatar Emiri Naval Forces Base",
     "date": "2026-09-01",
     "category": "Detection",
-    "summary": "Sample-data detection write-ups mapped to MITRE ATT&CK: hypothesis, data source, SPL/KQL query, false-positive tuning and response steps. Replace this card with your first real one.",
-    "tags": ["Splunk", "Sentinel", "MITRE ATT&CK", "KQL", "SPL"],
+    "summary": "System, network, and security engineer at Qatar Emiri Naval Forces Base site office",
+    "tags": ["Splunk", "Sentinel", "MITRE ATT&CK", "KQL", "SPL", "Cisco", "VMware", "Linux", "Firewall"],
     "links": []
   },
   {
