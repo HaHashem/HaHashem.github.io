@@ -79,6 +79,63 @@
     ]
   },
   {
+    "title": "Sigma Detection Rules (open source)",
+    "date": "2026-10-02",
+    "category": "Detection",
+    "summary": "20 Sigma rules for Windows threat hunting (ClickFix, PowerShell, ransomware precursors, credential theft, lateral movement) with ATT&CK mapping, false-positive notes, CI that converts every rule to Splunk and KQL, and an ATT&CK coverage map.",
+    "tags": [
+      "Sigma",
+      "Detection Engineering",
+      "MITRE ATT&CK",
+      "Splunk",
+      "KQL"
+    ],
+    "links": [
+      {
+        "label": "Source on GitHub",
+        "url": "https://github.com/HaHashem/sigma-rules"
+      }
+    ]
+  },
+  {
+    "title": "DFIR Toolkit (open source)",
+    "date": "2026-10-02",
+    "category": "Tooling",
+    "summary": "Small offline command-line tools with tests: IOC extraction and defanging, file hashing with lookup links, JA3/JA4 fingerprint stacking from captures, and Windows event log triage.",
+    "tags": [
+      "Python",
+      "DFIR",
+      "JA4",
+      "EVTX",
+      "Open Source"
+    ],
+    "links": [
+      {
+        "label": "Source on GitHub",
+        "url": "https://github.com/HaHashem/dfir-toolkit"
+      }
+    ]
+  },
+  {
+    "title": "DFIR Cheatsheets (open source)",
+    "date": "2026-10-02",
+    "category": "Reference",
+    "summary": "Quick-reference notes for investigations: Windows artifacts, event IDs, persistence locations, a first-30-minutes triage checklist, PowerShell and Linux command references, and CrowdStrike RTR.",
+    "tags": [
+      "DFIR",
+      "Windows Forensics",
+      "Linux",
+      "CrowdStrike",
+      "Incident Response"
+    ],
+    "links": [
+      {
+        "label": "Source on GitHub",
+        "url": "https://github.com/HaHashem/dfir-cheatsheets"
+      }
+    ]
+  },
+  {
     "title": "Home Network Segmentation (Alta Labs)",
     "date": "2026-07-18",
     "category": "Homelab",
