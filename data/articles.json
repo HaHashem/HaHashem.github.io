@@ -1,5 +1,20 @@
 [
   {
+    "slug": "registry-triage-registry-explorer-recmd",
+    "title": "Registry triage after a ransomware infection with Registry Explorer and RECmd",
+    "date": "2026-10-03",
+    "summary": "A lab method for reading Windows registry hives: persistence, defense evasion, and what actually ran. Registry Explorer bookmarks, ShimCache, BAM, UserAssist, RunMRU, ransomware-specific keys, and RECmd batch triage.",
+    "tags": [
+      "Registry",
+      "DFIR",
+      "Ransomware",
+      "Registry Explorer",
+      "Eric Zimmerman",
+      "Lab"
+    ],
+    "minutes": 11
+  },
+  {
     "slug": "detecting-failed-logons-event-4625",
     "title": "Detecting failed logons: reading Event 4625 from a real lab",
     "date": "2026-10-03",
