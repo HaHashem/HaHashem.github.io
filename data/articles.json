@@ -1,5 +1,21 @@
 [
   {
+    "slug": "detecting-failed-logons-event-4625",
+    "title": "Detecting failed logons: reading Event 4625 from a real lab",
+    "date": "2026-10-03",
+    "summary": "Reproduce failed logons in a lab, read every field of Event 4625, decode Status and SubStatus, triage an exported .evtx with a script, cross-check with SANS DeepBlueCLI, and tell a typo from brute force or password spraying with Splunk, KQL and Falcon queries.",
+    "tags": [
+      "Windows",
+      "Event Logs",
+      "DFIR",
+      "DeepBlueCLI",
+      "Splunk",
+      "Threat Hunting",
+      "Lab"
+    ],
+    "minutes": 10
+  },
+  {
     "slug": "crowdstrike-powershell-download-hunting",
     "title": "Hunting PowerShell downloads in CrowdStrike and Splunk",
     "date": "2026-10-02",
