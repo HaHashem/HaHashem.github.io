@@ -1,5 +1,33 @@
 [
   {
+    "slug": "velociraptor-offline-collector-registry-explorer",
+    "title": "Velociraptor part 2: offline collector and checking the collected hives",
+    "date": "2026-10-04",
+    "summary": "Build and run a Velociraptor offline collector, verify the zip hash, and confirm a service and a Defender exclusion in Registry Explorer.",
+    "tags": [
+      "Velociraptor",
+      "DFIR",
+      "Registry",
+      "Registry Explorer",
+      "Lab"
+    ],
+    "minutes": 7
+  },
+  {
+    "slug": "velociraptor-hunting-persistence-and-failed-logons",
+    "title": "Velociraptor part 1: hunting planted persistence and failed logons",
+    "date": "2026-10-04",
+    "summary": "Learning Velociraptor in a lab: artifacts, collections and hunts, finding a masqueraded service, a Run key and failed 4625 logons.",
+    "tags": [
+      "Velociraptor",
+      "DFIR",
+      "Threat Hunting",
+      "Event Logs",
+      "Lab"
+    ],
+    "minutes": 10
+  },
+  {
     "slug": "registry-triage-registry-explorer-recmd",
     "title": "Registry triage after a ransomware infection with Registry Explorer and RECmd",
     "date": "2026-10-03",
